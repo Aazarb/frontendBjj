@@ -1,0 +1,51 @@
+### Node.js ###
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+### Angular Build ###
+dist/
+out-tsc/
+.angular/
+
+### Environment Variables ###
+.env
+.env.*
+
+### IDE & Editor Files ###
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+### Logs & Reports ###
+*.log
+*.log.*
+*.trace
+
+### Compiled TypeScript ###
+*.tsbuildinfo
+
+### Misc ###
+.DS_Store
+Thumbs.db
+
+### Coverage Reports ###
+coverage/
+
+### Angular Cache ###
+.angular/cache/
+
+### ESLint ###
+.eslintcache
+
+### FrontendBjj Project Specific ###
+frontendBjj/node_modules/
+frontendBjj/dist/
+frontendBjj/.angular/
+frontendBjj/coverage/
