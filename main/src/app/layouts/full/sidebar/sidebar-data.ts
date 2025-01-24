@@ -97,7 +97,7 @@ export const customNavItems: NavItem[] = [
   },
   {
     displayName: 'Open chat',
-    iconName: 'bubble-text',
+    iconName: 'brand-line',
     route: '',
   }]
 

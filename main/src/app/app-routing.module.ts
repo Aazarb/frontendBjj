@@ -9,11 +9,6 @@ const routes: Routes = [
     component: FullComponent,
     children: [
       {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full',
-      },
-      {
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.module').then((m) => m.PagesModule),
@@ -34,16 +29,14 @@ const routes: Routes = [
   },
   {
     path: 'blank',
-    component: BlankComponent,
-    children: [
-      {
-        path: 'authentication',
-        loadChildren: () =>
-          import('./pages/authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
-      },
-    ],
+    component: BlankComponent
+  },
+  {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./pages/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
   },
 ];
 
