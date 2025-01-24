@@ -11,7 +11,7 @@ out-tsc/
 .angular/
 
 ### Environment Variables ###
-.env
+main/src/.env
 .env.*
 
 ### IDE & Editor Files ###
