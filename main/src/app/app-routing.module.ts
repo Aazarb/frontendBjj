@@ -1,35 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlankComponent } from './layouts/blank/blank.component';
-import { FullComponent } from './layouts/full/full.component';
+import {ForbiddenComponent} from "./pages/forbidden/forbidden.component";
+import {BlankComponent} from "./layouts/blank/blank.component";
+import {authGuard} from "./guards/auth.guard";
+import {WelcomeComponent} from "./pages/welcome/welcome.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: FullComponent,
+    redirectTo: 'welcome',
+    pathMatch: 'full',
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
+  },
+  {
+    path: '',
+    component: BlankComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.module').then((m) => m.PagesModule),
+        data: { role: 'admin' },
       },
       {
-        path: 'ui-components',
+        path: 'home',
         loadChildren: () =>
-          import('./pages/ui-components/ui-components.module').then(
-            (m) => m.UicomponentsModule
-          ),
-      },
-      {
-        path: 'extra',
-        loadChildren: () =>
-          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
-      },
+          import('./pages/pages.module').then((m) => m.PagesModule),
+        data: { role: 'member' },
+      }
     ],
-  },
-  {
-    path: 'blank',
-    component: BlankComponent
   },
   {
     path: 'authentication',
@@ -38,6 +41,8 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
+  { path: 'forbidden', component: ForbiddenComponent },
+  { path: '**', redirectTo: 'welcome' },
 ];
 
 @NgModule({

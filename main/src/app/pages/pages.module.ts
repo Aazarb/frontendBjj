@@ -9,6 +9,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import * as TablerIcons from 'angular-tabler-icons/icons';
 import { AppDashboardComponent } from './dashboard/dashboard.component';
+import {ForbiddenComponent} from "./forbidden/forbidden.component";
+import {WelcomeComponent} from "./welcome/welcome.component";
 
 @NgModule({
   declarations: [AppDashboardComponent],
@@ -17,6 +19,8 @@ import { AppDashboardComponent } from './dashboard/dashboard.component';
     MaterialModule,
     FormsModule,
     NgApexchartsModule,
+    ForbiddenComponent,
+    WelcomeComponent,
     RouterModule.forChild(PagesRoutes),
     TablerIconsModule.pick(TablerIcons),
   ],
